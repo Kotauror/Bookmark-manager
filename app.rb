@@ -8,8 +8,14 @@ class BookmarkManager < Sinatra::Base
     erb(:index)
   end
 
+  get '/getlink' do
+    erb(:getlink)
+  end
+
   post "/url" do
-    Link.create(url: params[:url]) # we pass a hash cause db has a hash structure
+    # we pass a hash because of consistency priciple - self.all returns list of hashes,
+    # so create should accept a hash as an argument.
+    Link.create(url: params[:url])
     redirect("/")
   end
 
