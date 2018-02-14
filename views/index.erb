@@ -14,9 +14,9 @@
         <% @links.each do |link| %>
           <li>
             <%= link.id %>
-            <a href="<%= link.url %>">
-              <%= link.url %>
-            </a>
+            <a href=" <%= link.url %>">
+            <%= link.title %>
+          </a>
           </li>
         <% end %>
       </ul>
