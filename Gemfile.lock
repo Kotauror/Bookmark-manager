@@ -42,6 +42,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     tilt (2.0.8)
     xpath (3.0.0)
       nokogiri (~> 1.8)
@@ -55,6 +57,7 @@ DEPENDENCIES
   rake
   rspec
   sinatra
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.5.0p0

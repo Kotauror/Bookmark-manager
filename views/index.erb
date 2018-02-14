@@ -4,6 +4,11 @@
     <form action="/getlink" method="get">
       <input type="submit" value="Add link">
     </form>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <div>
       <ul>
         <% @links.each do |link| %>

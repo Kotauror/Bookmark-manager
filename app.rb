@@ -1,8 +1,15 @@
+require 'sinatra'
 require 'sinatra/base'
 require './lib/link'
 require './database_connection_setup'
+require 'uri'
+require 'sinatra/flash'
 
 class BookmarkManager < Sinatra::Base
+
+  enable :sessions
+  register Sinatra::Flash
+
   get "/" do
     @links = Link.all
     erb(:index)
@@ -15,7 +22,9 @@ class BookmarkManager < Sinatra::Base
   post "/url" do
     url = params[:url]
     @result = Link.checkup(url)
-    @result == true ? Link.create(url: url) && redirect("/") : erb(:error)
+    @result == true ? Link.create(url: url) : flash[:notice] = "You have submitted an invalid url"
+    p flash[:notice] = "You have submitted an invalid url"
+    redirect("/")
   end
 
   run! if app_file == $0
