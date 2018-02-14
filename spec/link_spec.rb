@@ -16,4 +16,10 @@ describe Link do
       expect(Link.all).to include("http://www.testlink.com")
     end
   end
+
+  describe '.checkup' do
+    it "checks user input" do
+      expect(Link.checkup('www.foo.com')).to eq true
+    end
+  end
 end

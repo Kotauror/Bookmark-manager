@@ -13,8 +13,9 @@ class BookmarkManager < Sinatra::Base
   end
 
   post "/url" do
-    Link.create(url: params[:url])
-    redirect("/")
+    url = params[:url]
+    @result = Link.checkup(url)
+    @result == true ? Link.create(url: url) && redirect("/") : erb(:error)
   end
 
   run! if app_file == $0
