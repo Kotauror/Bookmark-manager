@@ -282,3 +282,7 @@ We're goin to create a new `DatabaseConnection` to:
   end
   ```
 > Note: we're using class methods on DatabaseConnection because our DatabaseConnection is never going to be instantiated. It's a 'Singleton' object: there's only one DatabaseConnection in the application.
+
+## ex 11
+
+right now people, in order to use our programm, need to have databases : bookmark_manager and bookmark_manager_test. To make it easier for them, we can use Rake - a task runner - o automate the tasks of setting up the database. 
