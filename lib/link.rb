@@ -3,9 +3,15 @@ require_relative 'database_connection'
 
 class Link
 
+  attr_reader :url
+
+  def initialize(url)
+    @url = url
+  end
+
   def self.all
     result = DatabaseConnection.query("SELECT * FROM links")
-    result.map { |link| link['url'] }
+    result.map { |link| Link.new(link['url']) }
   end
 
   def self.create(hash)
@@ -13,7 +19,7 @@ class Link
   end
 
   def self.checkup(url)
-    url[0..6] == 'http://' || url[0..2] == 'www' ? true : false 
+    url[0..6] == 'http://' || url[0..2] == 'www' ? true : false
   end
 
 end
