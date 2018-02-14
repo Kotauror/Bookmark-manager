@@ -12,6 +12,11 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
+    <% if flash[:notice] == "This title is not in the database" %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <div>
       <ul>
         <% @links.each do |link| %>

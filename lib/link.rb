@@ -26,7 +26,12 @@ class Link
 
   def self.delete(title)
     DatabaseConnection.query("DELETE FROM links WHERE title = '#{title}'")
+  end
 
+  def self.check_title(title)
+    links = Link.all
+    titles = links.map(&:title)
+    titles.include?(title) ? true : false 
   end
 
 end

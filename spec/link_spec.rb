@@ -31,4 +31,10 @@ describe Link do
       expect(titles).not_to include 'Evil'
     end
   end
+
+  describe '.check_title' do
+    it 'checks if the title exists' do
+      expect(Link.check_title('Evil')).to eq true
+    end
+  end
 end

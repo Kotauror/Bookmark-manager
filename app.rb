@@ -21,6 +21,7 @@ class BookmarkManager < Sinatra::Base
 
   post '/url' do
     url = params[:url]
+    title = params[:title]
     @result = Link.checkup(url)
     @result == true ? Link.create(url: url, title: title) : flash[:notice] = "You have submitted an invalid url"
     redirect("/")
@@ -32,14 +33,10 @@ class BookmarkManager < Sinatra::Base
 
   post '/delete' do
     title = params[:title]
-    Link.delete(title)
+    @result = Link.check_title(title)
+    @result == true ? Link.delete(title) : flash[:notice] = "This title is not in the database"
     redirect('/')
   end
-
-
-
-
-
 
   run! if app_file == $0
 end
