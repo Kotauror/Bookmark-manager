@@ -23,7 +23,6 @@ class BookmarkManager < Sinatra::Base
     url = params[:url]
     @result = Link.checkup(url)
     @result == true ? Link.create(url: url) : flash[:notice] = "You have submitted an invalid url"
-    p flash[:notice] = "You have submitted an invalid url"
     redirect("/")
   end
 

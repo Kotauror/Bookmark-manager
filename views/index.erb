@@ -4,7 +4,7 @@
     <form action="/getlink" method="get">
       <input type="submit" value="Add link">
     </form>
-    <% if flash[:notice] %>
+    <% if flash[:notice] == "You have submitted an invalid url" %>
       <div class="notice">
         <%= flash[:notice] %>
       </div>
