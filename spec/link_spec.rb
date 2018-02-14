@@ -23,4 +23,12 @@ describe Link do
       expect(Link.checkup('www.foo.com')).to eq true
     end
   end
+  describe '.delete' do
+    it 'deletes rows from table' do
+      Link.delete('Evil')
+      links = Link.all
+      titles = links.map(&:title)
+      expect(titles).not_to include 'Evil'
+    end
+  end
 end

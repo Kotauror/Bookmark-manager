@@ -24,4 +24,9 @@ class Link
     url[0..6] == 'http://' || url[0..2] == 'www' ? true : false
   end
 
+  def self.delete(title)
+    DatabaseConnection.query("DELETE FROM links WHERE title = '#{title}'")
+
+  end
+
 end
