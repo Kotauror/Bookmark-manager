@@ -1,5 +1,14 @@
+## Running this application
+
+This application uses databases.
+In order to run it properly, run the following line in order to create the databases.
+
+```plain
+$ rake setup
+```
+
 ## Planned link structure
-Links will be stored in array of links in Link class. 
+Links will be stored in array of links in Link class.
 Each link will be a hash having a key-value pairs of: name, tag, url and description.
 
 ## User Stories
