@@ -13,8 +13,6 @@ class BookmarkManager < Sinatra::Base
   end
 
   post "/url" do
-    # we pass a hash because of consistency priciple - self.all returns list of hashes,
-    # so create should accept a hash as an argument.
     Link.create(url: params[:url])
     redirect("/")
   end

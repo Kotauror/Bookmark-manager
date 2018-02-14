@@ -5,14 +5,18 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-# require_relative './features/web_helpers'
+require 'rake'
+
+
+Rake.application.load_rakefile
+# Load the Rakefile
 
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
 
   config.before(:each) do
-    require_relative './test_database_setup'
+    Rake::Task['test_database_setup'].execute
   end
 
   config.expect_with :rspec do |expectations|

@@ -286,3 +286,9 @@ We're goin to create a new `DatabaseConnection` to:
 ## ex 11
 
 right now people, in order to use our programm, need to have databases : bookmark_manager and bookmark_manager_test. To make it easier for them, we can use Rake - a task runner - o automate the tasks of setting up the database. 
+
+we're up to create task setup. 
+
+Instead of having test_database__setup file, now we feed the links in Rakefile. 
+Rakefile, apart from feeding links, create databases so our users don't have to do it on their own. ALl they need to do is to type rake setup. 
+In case they already have the databases, no new databases will be made :) (so don't worry about the rake aborted, that's good sign :D )
