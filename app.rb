@@ -46,8 +46,13 @@ class BookmarkManager < Sinatra::Base
     title = params[:title]
     new_title = params[:new_title]
     new_url = params[:new_url]
-    @result = Link.check_title(title)
-    @result == true ? Link.update(title, new_title, new_url) : flash[:notice] = "This title cannot be updated as it is not in the database"
+    @result_of_check_title = Link.check_title(title)
+    @resul_of_checking_up_url = Link.checkup(new_url)
+    if @resul_of_checking_up_url == true then
+      @result_of_check_title == true ? Link.update(title, new_title, new_url) : flash[:notice] = "This title cannot be updated as it is not in the database"
+    else
+      flash[:notice] = "You have submitted an invalid url"
+    end
     redirect('/')
   end
 
