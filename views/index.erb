@@ -7,7 +7,15 @@
     <form action="/delete" method="get">
       <input type="submit" value="Delete link">
     </form>
+    <form action="/update" method="get">
+      <input type="submit" value="Update link">
+    </form>
     <% if flash[:notice] == "You have submitted an invalid url" %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:notice] == "This title cannot be updated as it is not in the database" %>
       <div class="notice">
         <%= flash[:notice] %>
       </div>

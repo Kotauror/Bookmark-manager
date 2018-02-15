@@ -31,7 +31,11 @@ class Link
   def self.check_title(title)
     links = Link.all
     titles = links.map(&:title)
-    titles.include?(title) ? true : false 
+    titles.include?(title) ? true : false
+  end
+
+  def self.update(title, new_title, new_url)
+    DatabaseConnection.query("UPDATE links SET title = '#{new_title}', url = '#{new_url}' WHERE title = '#{title}'")
   end
 
 end

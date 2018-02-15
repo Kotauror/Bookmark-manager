@@ -38,5 +38,19 @@ class BookmarkManager < Sinatra::Base
     redirect('/')
   end
 
+  get '/update' do
+    erb(:update)
+  end
+
+  post '/update' do
+    title = params[:title]
+    new_title = params[:new_title]
+    new_url = params[:new_url]
+    @result = Link.check_title(title)
+    @result == true ? Link.update(title, new_title, new_url) : flash[:notice] = "This title cannot be updated as it is not in the database"
+    redirect('/')
+  end
+
+
   run! if app_file == $0
 end
